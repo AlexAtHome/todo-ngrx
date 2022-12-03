@@ -1,0 +1,10 @@
+<form [formGroup]="form" (submit)="addTask()">
+  <input type="text" formControlName="task">
+  <button type="submit" [disabled]="form.invalid">Add</button>
+</form>
+
+<section>
+  <ul>
+    <li *ngFor="let todo of todos">{{ todo }}</li>
+  </ul>
+</section>
