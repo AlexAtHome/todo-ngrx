@@ -1,10 +1,10 @@
 <form [formGroup]="form" (submit)="addTask()">
-  <input type="text" formControlName="task">
+  <input type="text" formControlName="task" autocomplete="off" />
   <button type="submit" [disabled]="form.invalid">Add</button>
 </form>
 
 <section>
   <ul>
-    <li *ngFor="let todo of todos">{{ todo }}</li>
+    <li *ngFor="let todo of todos$ | async">{{ todo.content }} <button (click)="remove(todo.id)">X</button></li>
   </ul>
 </section>
